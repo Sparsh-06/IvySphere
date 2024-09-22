@@ -1,7 +1,29 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import JoinWaitlistModal from "./JoinWaitlistModal"; // Import the modal
+import { gsap } from "gsap/gsap-core";
+import { useGSAP } from "@gsap/react";
 
 const Header = () => {
+
+  const AnimatedHeads = useRef(null);
+  const AnimatedImg = useRef(null);
+
+  useGSAP(()=>{
+    const tl = gsap.timeline({defaults: {ease: 'power3.inOut'}})
+
+    tl.from(AnimatedHeads.current.children, {
+      duration: 2,
+      opacity: 0,
+      stagger: 0.1
+    })
+
+    gsap.from(AnimatedImg.current, {
+      duration: 1,
+      opacity: 0,
+      x: 100,
+    })
+  })
+
   const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
 
   const openModal = () => setIsModalOpen(true);
@@ -10,7 +32,7 @@ const Header = () => {
   return (
     <section className="text-gray-600 body-font h-screen">
       <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center" ref={AnimatedHeads}>
           <h1 className="sm:text-4xl lg:text-5xl mb-4 font-medium text-gray-900">
             Streamline Your
             <br className="hidden lg:inline-block" />
@@ -49,7 +71,7 @@ const Header = () => {
           <img
             src="https://plus.unsplash.com/premium_photo-1683887034473-74e486cdb7a1?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="university"
-            className="rounded-xl"/>
+            className="rounded-xl" ref={AnimatedImg}/>
         </div>
       </div>
       <div className="mt-16">
