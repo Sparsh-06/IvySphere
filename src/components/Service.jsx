@@ -9,6 +9,7 @@ import {
   GroupIcon,
 } from "lucide-react";
 
+
 const ServiceCard = ({ icon, title, description, onClick }) => (
   <div
     className="p-6 bg-white rounded-lg shadow-md transition-all duration-300 hover:shadow-lg cursor-pointer"
@@ -25,6 +26,7 @@ const ServiceCard = ({ icon, title, description, onClick }) => (
 );
 
 const Service = () => {
+
   const [selectedService, setSelectedService] = useState(null);
 
   const services = [

@@ -3,7 +3,6 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Service from "./components/Service";
 import TestInomials from "./components/TestInomials";
-import Pricing from "./components/Pricing";
 import Steps from "./components/Steps";
 import Stats from "./components/Stats";
 import Wait from "./components/Wait";

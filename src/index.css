@@ -5,9 +5,7 @@
 
 body {
   font-family: "Hind", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
+  scroll: smooth;
 }
 
 p {
@@ -64,4 +62,33 @@ p {
   50% {
     transform: scale(1.1);
   }
+}
+
+/* Add this to your CSS file or use Tailwind’s @layer directive */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #000; /* Change this to the color you want */
+  transition: width 0.3s ease;
+  transform-origin: left;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  color: #000; /* Change hover text color */
 }
