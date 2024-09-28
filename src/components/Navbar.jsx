@@ -1,12 +1,15 @@
 import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import {useAuth0} from "@auth0/auth0-react";
+
 
 const Navbar = () => {
 
   const AnimatedLinks = useRef(null);
   const AnimatedJoin = useRef(null);
   const AnimatedLogo = useRef(null);
+  const {loginWithPopup} = useAuth0()
 
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
@@ -41,9 +44,10 @@ const Navbar = () => {
           <a className="nav-link mr-5 hover:text-gray-900">About</a>
           <a className="nav-link mr-5 hover:text-gray-900">Services</a>
           <a className="nav-link mr-5 hover:text-gray-900">Dashboard</a>
+          <a className="nav-link mr-5 hover:text-gray-900">Partner with Us</a>
           <a className="nav-link mr-5 hover:text-gray-900">Contact Us</a>
         </nav>
-        <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" ref={AnimatedJoin}>
+        <button onClick={()=>loginWithPopup()} className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" ref={AnimatedJoin}>
           Join Waitlist
           <svg
             fill="none"

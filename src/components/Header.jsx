@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import JoinWaitlistModal from "./JoinWaitlistModal"; // Import the modal
 import { gsap } from "gsap/gsap-core";
 import { useGSAP } from "@gsap/react";
@@ -46,14 +46,9 @@ const Header = () => {
           </p>
           <p className="mb-8 font-thin text-xl mt-4 ">World's 1<sup>st</sup> Solo College Application Preparation Platform </p>
           <div className="flex justify-center gap-4">
-            <input
-              type="text"
-              placeholder="Type your email"
-              className="input input-md input-bordered w-full max-w-xs"
-            />
             {/* Button to trigger modal */}
             <button onClick={openModal} className="btn btn-primary">
-              Join Waitlist
+              Connect wallet
             </button>
           </div>
         </div>
