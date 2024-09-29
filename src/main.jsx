@@ -8,8 +8,11 @@ import {ApplicationTracker} from "./pages/ApplicationTracker.jsx";
 import {SOPWriter} from "./pages/SOPWriter.jsx";
 import {CommunitySpace} from "./pages/CommunitySpace.jsx";
 import {DocumentManagerPage} from "./pages/DocumentPage.jsx";
-import {Admin} from "./pages/Admin.jsx";
 import {Auth0Provider} from "@auth0/auth0-react";
+import Alumni from "./pages/Alumni.jsx";
+import Pricing from "./components/Pricing.jsx";
+import PricingWeb3 from "./pages/Pricing.jsx";
+import Practice from "./pages/Practice.jsx";
 
 
 createRoot(document.getElementById("root")).render(
@@ -25,11 +28,15 @@ createRoot(document.getElementById("root")).render(
                 <Routes>
                     <Route path="/" element={<App/>}/>
                     <Route path="/dashboard" element={<DashLayout/>}>
+                        <Route index element={<CommunitySpace/>}/>
+                        <Route path="pricing" element={<PricingWeb3/>}/>
+                        <Route path="mock" element={<Practice/>}/>
+
                         <Route path="application-tracker" element={<ApplicationTracker/>}/>
+                        <Route path="alumni" element={<Alumni/>}/>
                         <Route path="Statement-Writer" element={<SOPWriter/>}/>
                         <Route path="document-manager" element={<DocumentManagerPage/>}/>
                         <Route path="community-space" element={<CommunitySpace/>}/>
-                        <Route path="admin" element={<Admin/>}/>
                     </Route>
                 </Routes>
             </ReactLenis>

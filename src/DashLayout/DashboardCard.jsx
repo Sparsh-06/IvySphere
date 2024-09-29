@@ -1,9 +1,9 @@
 import { useState } from "react";
+import axios from "axios";
 
-
-
-const DocumentCard= ({ title, desc }) => {
-    const [file, setFile] = useState();
+const DocumentCard = ({ title, desc }) => {
+    const [file, setFile] = useState(null);
+    const [uploading, setUploading] = useState(false);
 
     const handleFileChange = (event) => {
         if (event.target.files && event.target.files.length > 0) {
@@ -11,10 +11,26 @@ const DocumentCard= ({ title, desc }) => {
         }
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (file) {
-            console.log("Submitting file:", file.name);
-            // Additional actions for file submission
+            const formData = new FormData();
+            formData.append("file", file);
+
+            try {
+                setUploading(true);
+                const response = await axios.post("http://localhost:5000/upload", formData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                });
+                console.log("File uploaded successfully:", response.data);
+                // Handle success response (e.g., show a success message)
+            } catch (error) {
+                console.error("Error uploading file:", error);
+                // Handle error response (e.g., show an error message)
+            } finally {
+                setUploading(false);
+            }
         }
     };
 
@@ -37,8 +53,9 @@ const DocumentCard= ({ title, desc }) => {
                             <button
                                 onClick={handleSubmit}
                                 className="btn btn-sm btn-primary w-full mt-2"
+                                disabled={uploading}
                             >
-                                Submit
+                                {uploading ? "Uploading..." : "Submit"}
                             </button>
                         </>
                     )}

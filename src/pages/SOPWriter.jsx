@@ -68,7 +68,7 @@ export const SOPWriter = () => {
                     ref={editorRef}
                 ></div>
             </div>
-            <Link to="#">
+            <Link to="/dashboard/pricing">
                 <div className="badge badge-outline mt-2">
                     <span className="mx-1"><CiRainbow color="#f97316"/></span> Use AI Assistance and Suggestions
                 </div>

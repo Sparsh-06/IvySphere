@@ -8,7 +8,9 @@ import {
     FaQuestionCircle,
     FaCalendarAlt,
     FaUserShield,
-    FaTools // Importing the Tools icon
+    FaTools, // Importing the Tools icon
+    FaConnectdevelop,
+    FaNetworkWired
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useState } from "react";
@@ -23,7 +25,7 @@ const Sidebar = () => {
             {/* Sidebar Top Section */}
             <div>
                 <div className="p-6">
-                    <h1 className="text-2xl font-semibold text-base-content">PrepVault</h1>
+                    <h1 className="text-2xl font-semibold text-base-content">IvySphere</h1>
                 </div>
                 {/* Sidebar Menu */}
                 <ul className="menu p-4">
@@ -31,6 +33,7 @@ const Sidebar = () => {
                     <SidebarItem icon={<FaFileAlt />} text="Document Manager" linksTo='document-manager' />
                     <SidebarItem icon={<FaClipboardList />} text="Application Tracker" linksTo='application-tracker' />
                     <SidebarItem icon={<FaUniversity />} text="Community Space" linksTo='community-space' />
+                    <SidebarItem icon={<FaNetworkWired />} text="Practice" linksTo='mock' />
                     <SidebarItem icon={<FaQuestionCircle />} text="Add University" linksTo='university-list' />
 
                     {/* Tools Dropdown */}
@@ -39,8 +42,8 @@ const Sidebar = () => {
                         <SidebarItem icon={<FaUserFriends />} text="Essay Assistant" linksTo='' />
                     </SidebarDropdown>
 
+                    <SidebarItem icon={<FaConnectdevelop />} text="Alumni Portal" linksTo='alumni' />
                     <SidebarItem icon={<FaCalendarAlt />} text="Calendar" linksTo='' />
-                    <SidebarItem icon={<FaUserShield />} text="Admin" linksTo='admin' />
                 </ul>
             </div>
             {/* Sidebar Bottom Section */}

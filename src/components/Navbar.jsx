@@ -47,7 +47,7 @@ const Navbar = () => {
           <a className="nav-link mr-5 hover:text-gray-900">Partner with Us</a>
           <a className="nav-link mr-5 hover:text-gray-900">Contact Us</a>
         </nav>
-        <button onClick={()=>loginWithPopup()} className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" ref={AnimatedJoin}>
+        {/* <button onClick={()=>loginWithPopup()} className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" ref={AnimatedJoin}>
           Join Waitlist
           <svg
             fill="none"
@@ -60,7 +60,7 @@ const Navbar = () => {
           >
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
-        </button>
+        </button> */}
       </div>
     </header>
   );
